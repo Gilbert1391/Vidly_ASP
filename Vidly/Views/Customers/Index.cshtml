@@ -8,6 +8,7 @@
 }
 else
 {
+    <a href="Customers/New" class="btn btn-primary mb-1">New customer</a>
     <table class="table table-bordered table-hover ">
         <thead>
             <tr>
@@ -18,10 +19,10 @@ else
         <tbody>
             @foreach (var customer in Model.Customers)
             {
-            <tr>
-                <td><a href="Customers/Details/@customer.Id">@customer.Name</a></td>
-                <td>@customer.MembershipType.Name</td>
-            </tr>
+                <tr>
+                    <td><a href="Customers/Edit/@customer.Id">@customer.Name</a></td>
+                    <td>@customer.MembershipType.Name</td>
+                </tr>
             }
         </tbody>
     </table>

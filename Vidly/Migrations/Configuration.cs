@@ -15,7 +15,7 @@
 
         protected override void Seed(Vidly.Models.MyDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
@@ -31,7 +31,7 @@
                 },
                 new MembershipType
                 {
-                    Id= 2,
+                    Id = 2,
                     Name = "Monthly",
                     SignUpFee = 30,
                     DurationInMonths = 1,
@@ -63,7 +63,7 @@
                     Name = "John Smith",
                     IsSubscribedToNewsletter = false,
                     MembershipTypeId = 1,
-                    Birthday = new DateTime(1991, 6, 13)
+                    Birthdate = new DateTime(1991, 6, 13)
                 },
                 new Customer
                 {

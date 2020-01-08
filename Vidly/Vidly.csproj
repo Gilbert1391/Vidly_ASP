@@ -161,6 +161,10 @@
     <Compile Include="Migrations\202001031919573_UpdatedMovieModel.designer.cs">
       <DependentUpon>202001031919573_UpdatedMovieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001081545189_UpdatedFieldInCustomerModel.cs" />
+    <Compile Include="Migrations\202001081545189_UpdatedFieldInCustomerModel.designer.cs">
+      <DependentUpon>202001081545189_UpdatedFieldInCustomerModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -169,7 +173,9 @@
     <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\MovieFormViewModel.cs" />
     <Compile Include="ViewModels\MoviesViewModel.cs" />
+    <Compile Include="ViewModels\CustomerFormViewModel.cs" />
     <Compile Include="ViewModels\RandomMovieViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +220,8 @@
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Customers\CustomerForm.cshtml" />
+    <Content Include="Views\Movies\MovieForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -252,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001031919573_UpdatedMovieModel.resx">
       <DependentUpon>202001031919573_UpdatedMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001081545189_UpdatedFieldInCustomerModel.resx">
+      <DependentUpon>202001081545189_UpdatedFieldInCustomerModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
