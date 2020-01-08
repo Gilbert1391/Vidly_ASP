@@ -54,9 +54,19 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Route("Customers/Save")]
         public ActionResult Save(Customer customer)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("CustomerForm", new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+                });
+            }
+
             if(customer.Id == 0)
             {
                 _context.Customers.Add(customer);

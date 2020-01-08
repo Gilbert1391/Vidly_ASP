@@ -53,9 +53,19 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Route("Movies/Save")]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("MovieForm", new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                });
+            }
+
             if (movie.Id == 0)
             {
                  movie.DateAdded = DateTime.Now;
