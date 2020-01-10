@@ -39,7 +39,7 @@ namespace Vidly.Controllers.Api
                 .SingleOrDefault(c => c.Id == id);
 
             if (customer == null)
-                return NotFound();
+                return Content(HttpStatusCode.NotFound, $"Customer with Id {id} not found");
 
             return Ok(customer);
         }
@@ -68,13 +68,14 @@ namespace Vidly.Controllers.Api
             Customer customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                return NotFound();
+                return Content(HttpStatusCode.NotFound, $"Customer with Id {id} not found");
 
+            customerDto.Id = customerInDb.Id;
             _mapper.Map(customerDto, customerInDb);
 
             _context.SaveChanges();
 
-            return ResponseMessage(new HttpResponseMessage(HttpStatusCode.NoContent));
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
         [HttpDelete]
@@ -83,12 +84,12 @@ namespace Vidly.Controllers.Api
             Customer customerInDb = _context.Customers.SingleOrDefault(c => c.Id == id);
 
             if (customerInDb == null)
-                return NotFound();
+                return Content(HttpStatusCode.NotFound, $"Customer with Id {id} not found");
 
             _context.Customers.Remove(customerInDb);
             _context.SaveChanges();
 
-            return ResponseMessage(new HttpResponseMessage(HttpStatusCode.NoContent));
+            return StatusCode(HttpStatusCode.NoContent);
         }
     }
 }
