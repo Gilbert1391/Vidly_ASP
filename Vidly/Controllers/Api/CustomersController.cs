@@ -25,23 +25,23 @@ namespace Vidly.Controllers.Api
         }
         public IHttpActionResult GetCustomers()
         {
-            IEnumerable<CustomerDto> customers = _context.Customers
+            IEnumerable<CustomerDto> customerDto = _context.Customers
                 .ToList()
                 .Select(_mapper.Map<Customer, CustomerDto>);
 
-            return Ok(customers);
+            return Ok(customerDto);
         }
 
         public IHttpActionResult GetCustomer(int id)
         {
-            var customer = _context.Customers
+            var customerDto = _context.Customers
                 .Select(_mapper.Map<Customer, CustomerDto>)
                 .SingleOrDefault(c => c.Id == id);
 
-            if (customer == null)
+            if (customerDto == null)
                 return Content(HttpStatusCode.NotFound, $"Customer with Id {id} not found");
 
-            return Ok(customer);
+            return Ok(customerDto);
         }
 
         [HttpPost]
